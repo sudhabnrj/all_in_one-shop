@@ -1,0 +1,39 @@
+.megaMenu {
+    display: none;
+    left: 0;
+    visibility: visible;
+    opacity: 0;
+    transition-delay: .5s;
+}
+.categoryItem.hasMegamenu:hover .megaMenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+.subMenuL2, .subMenuL3 {
+    display: none;
+}
+.subMenuL1, .subMenuL2, .subMenuL3 {
+    border-right: 1px solid #eaeaea;
+    position: relative;
+    min-height: 240px;
+    direction: rtl;
+}
+.menuFetureProducts {
+    max-width: 45%;
+}
+.subMenuL2, .subMenuL3 {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    max-height: 100%;
+    height: 100%;
+}
+.subMenuL1Item:hover .subMenuL2, .subMenuL2Item:hover .subMenuL3 {
+    display: flex;
+}
+.subMenuL1Item, .subMenuL2Item, .subMenuL3Item {
+    max-width: 260px;
+    min-width: 220px;
+    direction: ltr;
+}

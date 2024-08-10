@@ -1,0 +1,280 @@
+/* Gotham Fonts */
+@font-face {
+    font-family: 'Gotham';
+    src: url('../src/assets/fonts/Gotham-Bold.eot');
+    src: url('../src/assets/fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Gotham-Bold.woff2') format('woff2'),
+        url('../src/assets/fonts/Gotham-Bold.woff') format('woff'),
+        url('../src/assets/fonts/Gotham-Bold.ttf') format('truetype'),
+        url('../src/assets/fonts/Gotham-Bold.svg#Gotham-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../src/assets/fonts/Gotham-Medium.eot');
+    src: url('../src/assets/fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Gotham-Medium.woff2') format('woff2'),
+        url('../src/assets/fonts/Gotham-Medium.woff') format('woff'),
+        url('../src/assets/fonts/Gotham-Medium.ttf') format('truetype'),
+        url('../src/assets/fonts/Gotham-Medium.svg#Gotham-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../src/assets/fonts/Gotham-Black.eot');
+    src: url('../src/assets/fonts/Gotham-Black.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Gotham-Black.woff2') format('woff2'),
+        url('../src/assets/fonts/Gotham-Black.woff') format('woff'),
+        url('../src/assets/fonts/Gotham-Black.ttf') format('truetype'),
+        url('../src/assets/fonts/Gotham-Black.svg#Gotham-Black') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../src/assets/fonts/Gotham-Book.eot');
+    src: url('../src/assets/fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Gotham-Book.woff2') format('woff2'),
+        url('../src/assets/fonts/Gotham-Book.woff') format('woff'),
+        url('../src/assets/fonts/Gotham-Book.ttf') format('truetype'),
+        url('../src/assets/fonts/Gotham-Book.svg#Gotham-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body{
+    font-family: 'Gotham';
+    margin: 0;
+    padding: 0;
+}
+.isSticky{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+}
+.isSticky > .topNav{
+    display: none;
+}
+.megaMenu ul::-webkit-scrollbar,
+.search-suggestion::-webkit-scrollbar,
+.custom-scrollbar::-webkit-scrollbar{
+    width: 6px;
+}
+.megaMenu ul::-webkit-scrollbar-track,
+.search-suggestion::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar-track{
+    background: #f1f1f1; 
+}
+.megaMenu ul::-webkit-scrollbar-thumb,
+.search-suggestion::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb{
+    background: #333; 
+    border-radius: 12px;
+}
+.megaMenu ul::-webkit-scrollbar-thumb:hover,
+.search-suggestion::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover{
+    background: #000; 
+}
+nav .swiper-slide{
+    width: auto !important;
+}
+.swiper-button-next,
+.swiper-button-prev{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center center;
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled{
+    display: none;
+}
+.swiper-button-prev{
+    left: 0;
+    background-image: url(../src/assets/images/prev.png);
+}
+.swiper-button-next{
+    right: 0;
+    background-image: url(../src/assets/images/next.png);
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    background-color: rgba(81, 81, 81, 0.5);
+    border-color: rgba(140, 140, 140, 0.5);;
+}
+.heroSlider .slick-dots{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    bottom: -60px;
+}
+.heroSlider .slick-dots li{
+    margin: 0;
+    width: 19%;
+    max-width: 19%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+}
+.heroSlider .slick-dots li button{
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+}
+.heroSlider .slick-dots li button{
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.heroSlider .slick-dots .slick-active button{
+    border-color: #1979C3;
+}
+.heroSlider .slick-dots li button:before{
+    display: none;
+}
+.redTriangle {
+    border-color: #e32526 transparent transparent #e32526;
+    border-style: solid;
+    border-width: 10px;
+    display: inline-block;
+    height: 20px;
+}
+.react-tabs__tab--selected{
+    border-color: #EAEAEA !important;
+}
+.react-tabs__tab{
+    width: 205px;
+    background-color: #000;
+    border: 0.1rem solid #000;
+    color: #fff;
+    border-radius: 0 !important;
+    text-align: center;
+    padding: 12px 12px !important;
+}
+.react-tabs__tab--selected{
+    border-radius: 0;
+}
+.react-tabs__tab-panel--selected{
+    border: 0.1rem solid #EAEAEA;
+    padding: 20px;
+}
+table td, table th {
+    text-align: left;
+    padding: 6px;
+    border: 1px solid #eaeaea;
+}
+/* Loader.css */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1000;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.cart-table td, .cart-table th{
+    border: none;
+}
+.cart-table thead th {
+    border-bottom: 1px solid #000;
+}
+.cart-table tbody td {
+    padding: 2.5rem 0;
+}
+.cart-table>:not(caption)>*>*{
+    border-bottom: 1px solid #EAEAEA;
+}
+ul.showItems li {
+    cursor: pointer;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid transparent;
+}
+ul.showItems li.active, ul.showItems li:hover {
+    border-bottom-color: #e5e5e5;
+    background: #fff;
+}
+.react-tabs__tab-list{
+    margin: 0 !important;
+    border-bottom: 0 !important;
+}
+.userTabMenu .react-tabs__tab--selected {
+    background: #000 !important;
+    border-color: #aaa !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+.home-Service{
+    border-radius: 80%/20%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+@media(max-width: 1024px){
+    .home-Service{
+        border-radius: 80%/12%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+@media(max-width: 767px){
+    .home-Service{
+        border-radius: 80%/5%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
