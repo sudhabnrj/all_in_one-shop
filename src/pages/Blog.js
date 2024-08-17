@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import BreadcumContainer from '../components/breadcum/BreadcumContainer';
 import useNewsList from '../hooks/useNewsList';
-import BlogSidebar from '../components/blog/BlogSidebar';
+// import BlogSidebar from '../components/blog/BlogSidebar';
 import NewsItem from './../components/blog/NewsItem';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../components/Loader';
@@ -22,14 +22,18 @@ const Blog = () => {
     //Total Page calculation
     const totalPage = Math.ceil(filterNewsResult.length / itemPerPage);
 
-    console.log(filterNewsResult);
+    
 
     useEffect(()=> {
         dispatch(setLoading(true));
         setTimeout(()=> {
             dispatch(setLoading(false));
         }, 1000);
-    }, []);
+    }, [dispatch]);
+    
+    if(!filterNewsResult){
+        return <Loader/>
+    }
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);

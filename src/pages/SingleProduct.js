@@ -83,22 +83,22 @@ const SingleProduct = ({items}) => {
     return (
         <section className='my-8'>
             {loading && <Loader/>}
-            <div className='container mx-auto px-3 xl:px-0'>
-                <ul className="bredcrumb my-4 flex items-center rounded-full bg-light-gray p-2 capitalize leading-tight text-light-dark">
+            <div className='container mx-auto sm:px-3 xl:px-0'>
+                <ul className="bredcrumb my-4 flex items-center rounded-full bg-light-gray px-4 py-3 md:p-2 capitalize leading-tight text-light-dark flex-wrap">
                     <BreadcumContainer pageName='Home' pageUrl={'/'} />
                     <BreadcumContainer pageName='Shop' pageUrl={'/shop/'} />
                     <BreadcumContainer pageName={category} pageUrl={`/shop/${category}`} />
                     <BreadcumContainer pageName={title}  />
                 </ul>
-                <div className='flex justify-between items-start'>
-                    <div className='w-1/3'>
+                <div className='flex justify-between items-start flex-col sm:flex-row'>
+                    <div className='w-full sm:w-1/3'>
                         <div className='border p-2 border-light-gray text-center'>
                             <LoadingImg src={thumbnail || (images.length > 0 ? images[0] : '')} alt={title} />
                         </div>
                     </div>
-                    <div className='w-2/3'>
-                        <div className='pl-8'>
-                            <h1 className='text-3xl font-bold mb-1'>{title}</h1>
+                    <div className='w-full sm:w-2/3 mt-5 sm:mt-0'>
+                        <div className='sm:pl-8'>
+                            <h1 className='text-2xl sm:text-xl 2xl:text-3xl font-bold mb-1'>{title}</h1>
                             <p className='my-2'>{availabilityStatus}</p>
                             <p className='font-medium text-lg my-3'>${price}</p>
                             <hr/>
@@ -109,7 +109,7 @@ const SingleProduct = ({items}) => {
                                     <input type='number' value={quantity} className='w-full border border-light-gray py-2 px-2 outline-none' onChange={handleQuantityChange} placeholder='Qty'  min='1' />
                                 </div>
                                 <div className='w-4/5'>
-                                    <div className='w-[40%] flex justify-start items-stretch gap-4'>
+                                    <div className='md:w-[70%] 2xl:w-[40%] flex justify-start items-stretch gap-4'>
                                         <AddToCartButton disabled={isAdded} text={isAdded ? 'Added to Cart' : 'Add to cart'} onClick={()=> handleAddToCart(id, quantity)} className={` ${isAdded ? 'bg-primary opacity-55 font-bold' : 'bg-secondary font-normal'}`}/>
                                         <WishlistButton 
                                             disabled={isWishlistAdded}

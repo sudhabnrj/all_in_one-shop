@@ -10,7 +10,7 @@ import { handleCart } from '../../utils/cartUtils';
 // import { toast } from 'react-toastify';
 import { handleWishlistItem } from '../../utils/wishlistUtils';
 
-const ProductList = ({pName, url, pSrc, pPrice, className, sku, warrantyInformation, availabilityStatus, pWith, hoverCondition, listRow, btnHeight, onClick, items, imgHeight }) => {
+const ProductList = ({pName, url, pSrc, pPrice, className, sku, warrantyInformation, availabilityStatus, pWith, hoverCondition, listRow, btnHeight, onClick, items, imgHeight,isGridView }) => {
     const isLoggedIn = useSelector((state)=> state.user.loggedInUser || {});
     const cartItems = useSelector((state)=> state.cart.items || {});
     const wishListItems = useSelector((state)=> state.wishlist.items || {});
@@ -27,9 +27,11 @@ const ProductList = ({pName, url, pSrc, pPrice, className, sku, warrantyInformat
         handleWishlistItem(items, isLoggedIn, dispatch, navigate, setIsWishlistAdded);
     };
 
+    console.log(isWishlistAdded);
+
 
     return (
-        <div className={`w-full text-center ${className}`}>
+        <div className={`w-full text-center product-list ${className}`}>
             <Link to={url} onClick={onClick} className={`relative ${className}`}>
                 <div className={`relative ${className}`}>
                     <div className={`${pWith}`}>
@@ -47,15 +49,15 @@ const ProductList = ({pName, url, pSrc, pPrice, className, sku, warrantyInformat
                 </div>
             </Link>
             <div className={listRow}>
-                <div>
+                <div className={`${!isGridView ? 'w-full' : 'w-[65%]'}`}>
                     <Link to={url} onClick={onClick} className='hover:text-primary'><h4 className='font-medium text-md my-3 line-clamp-1 uppercase'>{pName}</h4></Link>
                     <p className='font-semibold my-3'>
                         <span>${pPrice}</span>
                     </p>
                 </div>
-                <div className='flex justify-between items-stretch w-[240px]'>
+                <div className={`${!isGridView ? 'w-full gap-x-2' : 'w-[35%] btn-grid-view gap-x-2 2xl:gap-x-0'} flex justify-between items-stretch`}>
                     <AddToCartButton 
-                    disabled={isAdded} text={isAdded ? 'Added to Cart' : 'Add to cart'} onClick={()=> handleAddToCart(items)} className={` ${btnHeight} ${isAdded ? 'bg-primary opacity-55 font-bold' : 'bg-secondary font-normal'}`}/>
+                    disabled={isAdded} text={isAdded ? 'Added' : 'Add to cart'} onClick={()=> handleAddToCart(items)} className={` ${btnHeight} ${isAdded ? 'bg-primary opacity-55 font-bold' : 'bg-secondary font-normal'}`}/>
                     
                     <WishlistButton 
                         disabled={isWishlistAdded}

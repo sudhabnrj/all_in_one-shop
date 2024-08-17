@@ -49,11 +49,11 @@ const Cart = () => {
         <div className='pb-8'>
           <h1 className='font-bold text-2xl mb-8'>Shopping Cart</h1>
           {cartItems.length > 0 ? (
-            <div className='flex'>
-              <div className='w-2/3 pr-8'>
+            <div className='flex flex-col lg:flex-row'>
+              <div className='w-full lg:w-2/3 lg:pr-8'>
                 <div className='flex justify-between flex-col items-center w-full'>
                   <div className='pb-8 border-b-8 border-black flex justify-between items-center w-full'>
-                    <h3 className="font-bold text-3xl">Items</h3>
+                    <h3 className="font-bold lg:text-xl xl:text-3xl">Items</h3>
                     <div className='flex justify-end items-center'>
                       <Link className="flex justify-start items-center text-secondary underline font-medium">
                         <LocalPrintshopOutlinedIcon/>
@@ -65,57 +65,59 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                  <table className="w-full cart-table">
-                    <thead>
-                        <tr>
-                          <th scope="col" className='border-none py-4 text-xl'>Product Description</th>
-                          <th scope="col" className='border-none py-4 text-xl'>Quantity</th>
-                          <th scope="col" className="text-center border-none py-4 text-xl">Price/Unit</th>
-                          <th scope="col" className="text-end border-none py-4 text-xl">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      {cartItems && cartItems.map((item)=> (
-                        <tr key={item.id}>
-                          <td className="">
-                              <div className="flex justify-start items-center">
-                                <div className="w-[133px] h-[150px]">
-                                    <img src={item.thumbnail} alt={item.title} className="border border-light-gray rounded-md w-[133px] h-[150px]" />
-                                </div>
-                                <div className="relative ml-4">
-                                  <button onClick={()=> handleDeleteCartItem(item.id)} className="block lg:hidden absolute right-0 bottom-0">Remove</button>
-                                  <Link to={`/product/${item.id}`}><h4 className="font-bold text-xl mb-3">{item.title}</h4></Link>
-                                  <p className="">SKU #: <span>{item.sku}</span></p>
-                                  <div className="block lg:hidden">
-                                    <p>Price/Unit: ${item.price}</p>
+                  <div className='cart-table'>
+                    <table className="w-full ">
+                      <thead>
+                          <tr>
+                            <th scope="col" className='border-none py-4 lg:text-md xl:text-xl'>Product Description</th>
+                            <th scope="col" className='border-none py-4 lg:text-md xl:text-xl hidden lg:table-cell'>Quantity</th>
+                            <th scope="col" className="text-center border-none py-4 lg:text-md xl:text-xl hidden lg:table-cell">Price/Unit</th>
+                            <th scope="col" className="text-end border-none py-4 lg:text-md xl:text-xl">Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {cartItems && cartItems.map((item)=> (
+                          <tr key={item.id}>
+                            <td className="">
+                                <div className="flex justify-start items-center">
+                                  <div className="w-[133px] h-[150px]">
+                                      <img src={item.thumbnail} alt={item.title} className="border border-light-gray rounded-md w-xl:[133px] xl:h-[150px] h-[100px]" />
                                   </div>
-                                  <div className="flex justify-between align-center lg:hidden">
-                                    <input type="number"  name="quantity" className="text-center"   />
-                                    <p className="font-bold"><span className="inline-block lg:hidden">Total:</span> $0.37</p>
+                                  <div className="relative ml-4">
+                                    {/* <button onClick={()=> handleDeleteCartItem(item.id)} className="block lg:hidden absolute right-0 bottom-0">Remove</button> */}
+                                    <Link to={`/product/${item.id}`}><h4 className="font-bold text-md lg:text-xl mb-3">{item.title}</h4></Link>
+                                    <p className="text-sm lg:text-md">SKU #: <span>{item.sku}</span></p>
+                                    <div className="block lg:hidden text-sm lg:text-md">
+                                      <p>Price/Unit: ${item.price}</p>
+                                    </div>
+                                    {/* <div className="flex justify-between align-center lg:hidden">
+                                      <input type="number"  name="quantity" className="text-center"   />
+                                      <p className="font-bold"><span className="inline-block lg:hidden">Total:</span> $0.37</p>
+                                    </div> */}
                                   </div>
                                 </div>
-                              </div>
-                          </td>
-                          <td className="">
-                              <input type="number" name="quantity" className="text-center border border-light-gray w-[78px] h-[45px] outline-none" min='1' value={item.quantity} onChange={(e)=> handleUpdateQuantity(item.id, e.target.value)} />
-                          </td>
-                          <td className="text-center">
-                              <p>${item.price}</p>
-                          </td>
-                          <td className="text-right relative">
-                              <p className="font-bold"> ${(item.price * item.quantity).toFixed(2)}</p>
-                              <button onClick={()=> handleDeleteCartItem(item.id)} className="absolute bottom-3 right-0 flex items-center text-primary font-bold">
-                                <DeleteOutlinedIcon/>
-                                <span>Remove</span>
-                              </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                            </td>
+                            <td className="hidden lg:table-cell">
+                                <input type="number" name="quantity" className="text-center border border-light-gray w-[78px] h-[45px] outline-none" min='1' value={item.quantity} onChange={(e)=> handleUpdateQuantity(item.id, e.target.value)} />
+                            </td>
+                            <td className="text-center hidden lg:table-cell">
+                                <p>${item.price}</p>
+                            </td>
+                            <td className="text-right relative">
+                                <p className="font-bold"> ${(item.price * item.quantity).toFixed(2)}</p>
+                                <button onClick={()=> handleDeleteCartItem(item.id)} className="absolute bottom-3 right-0 flex items-center text-primary font-bold">
+                                  <DeleteOutlinedIcon/>
+                                  <span>Remove</span>
+                                </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <div className='w-1/3'>
+              <div className='w-full lg:w-1/3'>
                 <CartSidebar subtotalPrice={subtotal.toFixed(2)} totalItems={cartItems.length} checkoutUrl={`/checkout`} />
               </div>
             </div>) : (

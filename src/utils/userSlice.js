@@ -20,7 +20,7 @@ const userSlice = createSlice({
         },
         updateUserInAllUsers: (state, action) => {
             const updatedUser = action.payload;
-            const index = state.allUsers.findIndex((user)=> user.user.userId === updatedUser.user.userId);
+            const index = state.allUsers.findIndex((user)=> user.user.userid === updatedUser.user.userid);
             if(index > -1){
                 state.allUsers[index] = updatedUser;
             }

@@ -111,7 +111,7 @@ const Checkout = () => {
             dispatch(addAllUser({ user, address }));
             dispatch(addCurrentUser({ user, address }));
             dispatch(setLoggedInUser({
-                userId: userid,
+                userid: userid,
                 firstName: firstName.current?.value,
                 lastName: lastName.current?.value,
                 email: email.current?.value,
@@ -180,8 +180,8 @@ const Checkout = () => {
             
             {/* <CheckoutHeader /> */}
             <div className='container mx-auto px-3 xl:px-0'>
-                <form onSubmit={(e) => e.preventDefault()} className='flex mt-12'>
-                    <div className='w-2/3 pr-8'>
+                <form onSubmit={(e) => e.preventDefault()} className='flex md:flex-row flex-col mt-12'>
+                    <div className='w-full md:w-2/3 pr-2 lg:pr-8'>
                         <h1 className='font-bold text-2xl mt-8 mb-4 flex justify-between items-center'>
                             Checkout 
                             {!loggedInUser.loggedIn && <p className='text-base'>Already registered? <Link className='ml-2 text-primary underline' to='/login'>Login</Link></p>}
@@ -342,7 +342,7 @@ const Checkout = () => {
                         </div>
 
                     </div>
-                    <div className='w-1/3 mt-8'>
+                    <div className='w-full md:w-1/3 mt-8'>
                         <div className='p-4 pt-0'>
                             <h2 className='font-bold text-2xl mb-4'>Order Summary</h2>
                             <div className='flex flex-col w-full custom-scrollbar max-h-[290px] overflow-y-auto pr-2'>

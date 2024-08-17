@@ -7,6 +7,7 @@ import { Validate } from '../utils/Validate';
 import { addAllUser, addCurrentUser, setLoggedInUser, setIsDropdown } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { generateUserId } from '../utils/generateId';
+import bcrypt from "bcryptjs-react";
 
 const Signup = () => {
     const loading = useSelector((state) => state.loader.loading);
@@ -57,11 +58,13 @@ const Signup = () => {
         if (Object.keys(errorMessages).length > 0) return;
         const userid = generateUserId();
 
+        const hashedPassword = bcrypt.hashSync(password.current.value, 10);
+
         const user = {
             userid: userid,
             email: email.current.value,
             phone: phone.current.value,
-            password: password.current.value,
+            password: hashedPassword,
         }
         const address = {
             userid: userid,
@@ -103,14 +106,14 @@ const Signup = () => {
     return (
         <div className="signupPage pt-8">
             {loading && <Loader />}
-            <div className=" container mx-auto px-3 xl:px-0">
+            <div className=" container mx-auto sm:px-3 xl:px-0">
                 <h1 className="mb-4 font-bold md:mb-6 text-2xl md:text-3xl lg:text-4xl">Create New Customer Account</h1>
                 <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:gap-10">
-                    <div className='w-1/2'>
+                    <div className='w-full lg:w-1/2 mb-8 lg:mb-0'>
                         <div className='bg-light-gray p-4'>
                             <h2 className='text-2xl mb-4 font-medium'>Register</h2>
                             <p className='my-3'>Join Essex brownel today. Start earning rewards points that can be redeemed for rewards cards to a wide variety of merchants.</p>
-                            <div className='flex justify-between items-stretch'>
+                            <div className='flex flex-col sm:flex-row justify-between items-stretch'>
                                 <input 
                                     type='text' 
                                     placeholder='First Name' 
@@ -122,7 +125,7 @@ const Signup = () => {
                                     type='text' 
                                     placeholder='Last Name' 
                                     name='listName' 
-                                    className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none"
+                                    className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none mt-5 sm:mt-0"
                                     ref={lastName}
                                 />
                             </div>
@@ -217,7 +220,7 @@ const Signup = () => {
                         </div>
                         <p className='mt-4 mb-3'>Thank you for your interest in setting up a B2B account. Since there are so many working pieces involved in setting up a new B2B account we are currently asking that you please call us directly.</p>
                     </div>
-                    <div className='flex'>
+                    <div className='lg:flex items-end hidden'>
                         <img src={registerAvatar} className='max-w-full' alt='Register avatar' />
                     </div>
                 </div>

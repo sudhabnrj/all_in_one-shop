@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../components/Loader';
 import { setLoading } from '../utils/loaderSlice';
 import { addCurrentUser, setLoggedInUser, setIsDropdown } from '../utils/userSlice';
+import bcrypt from "bcryptjs-react";
 
 const Login = () => {
     const loading = useSelector((state) => state.loader.loading);
@@ -37,20 +38,30 @@ const Login = () => {
             return;
         }
 
-        const user = allUsers.find((user) => user.user?.email === emailValue && user.user?.password === passwordValue);
+        const user = allUsers.find((user) => user.user?.email === emailValue);
         
         
         if(user){
-            dispatch(addCurrentUser(user));
-            dispatch(setLoggedInUser({
-                userid: user.user?.userid,
-                firstName: user.address?.firstName,
-                lastName: user.address?.lastName,
-                email: user.user?.email,
-                loggedIn: true,
-            }));
-            navigate('/');
-            // console.log('Login data---', user)
+
+            const isPasswordCorrect = bcrypt.compareSync(passwordValue, user.user?.password);
+
+            if(isPasswordCorrect){
+
+                dispatch(addCurrentUser(user));
+                dispatch(setLoggedInUser({
+                    userid: user.user?.userid,
+                    firstName: user.address?.firstName,
+                    lastName: user.address?.lastName,
+                    email: user.user?.email,
+                    loggedIn: true,
+                }));
+                navigate('/');
+                // console.log('Login data---', user)
+
+            }else{
+                alert('Invalid Password!');
+            }
+            
         }else{
             alert('Invalid credentials');
         }

@@ -5,10 +5,12 @@ const HomeSlider = ({src, className, srcSet, sizes}) => {
     return (
         <picture>
             <source srcSet={srcSet} type="image/webp" />
-            <LoadingImg role="presentation" loading="lazy" className={className} 
+            <LoadingImg 
+                className={`${className}`} 
                 src={src} 
                 srcSet={srcSet} 
-                sizes={sizes} alt='' 
+                size={sizes} 
+                alt='' 
             />
         </picture>    
     )

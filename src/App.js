@@ -19,6 +19,7 @@ import MyAccount from './pages/MyAccount';
 import ThankYou from './pages/ThankYou';
 import Blog from './pages/Blog';
 import Partnerships from './pages/Partnerships';
+import Markets from './pages/Markets';
 
 const appRouter = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const appRouter = createBrowserRouter([
       {
         path: 'partnership',
         element: <Partnerships />
+      },
+      {
+        path: 'markets',
+        element: <Markets />
       }
 
     ]

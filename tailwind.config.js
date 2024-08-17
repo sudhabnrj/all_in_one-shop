@@ -11,6 +11,11 @@ module.exports = {
         'light-dark': '#2B2B2B',
         'light-gray': '#EAEAEA',
       },
+      screens: {
+        'mobile-480': '480px',
+        'mobile-360': '360px',
+        'mobile-320': '320px',
+      },
     },
   },
   plugins: [],

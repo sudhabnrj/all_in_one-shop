@@ -152,14 +152,14 @@ const MyAccount = () => {
     return (
         <div className="myAccountPage pt-8 bg-gray-50 pb-12">
             {loading && <Loader />}
-            <div className="container mx-auto px-3 xl:px-0">
+            <div className="container mx-auto sm:px-3 xl:px-0">
                 <div className='flex justify-between items-center border-b-stone-400 border-b mb-5'>
                     <h1 className="mb-4 font-bold md:mb-6 text-2xl md:text-3xl lg:text-4xl">My Account</h1>
                     <button className='px-4 py-2 text-md bg-primary rounded-md text-white font-medium' onClick={handleLogout}>Logout</button>
                 </div>
                 <div className="w-full">
                     <Tabs selectedIndex={selectedIndex} onSelect={index => setSelectedIndex(index)} className='flex flex-col gap-6 md:gap-8 lg:flex-row lg:gap-10'>
-                        <div className='w-1/4 userTabMenu'>
+                        <div className='lg:w-1/4 userTabMenu'>
                             <div className='border border-light-gray'>
                                 <UserInfo userName={`${currentUser.address.firstName} ${currentUser.address.lastName}`} userEmail={currentUser.user?.email || ''} />
                                 <TabList>
@@ -171,9 +171,9 @@ const MyAccount = () => {
                                 </TabList>
                             </div>
                         </div>
-                        <div className='w-3/4'>
+                        <div className='lg:w-3/4'>
                             <TabPanel className='w-full'>
-                                <div className='flex justify-between items-center'>
+                                <div className='flex justify-start items-start md:justify-between md:items-center flex-col md:flex-row'>
                                     <h2 className='font-semibold text-2xl'>Personal Information</h2>
                                     <button className='text-secondary underline font-semibold cursor-pointer' onClick={() => setSelectedIndex(3)}>
                                         <EditOutlinedIcon /> Edit Personal Information
@@ -207,7 +207,7 @@ const MyAccount = () => {
                             </TabPanel>
                             <TabPanel className='w-full'>
                                 <h2 className='font-semibold text-2xl'>Your Wishlist Items</h2>
-                                {wishlistByUser.length > 0 ? <div className={'grid grid-cols-4 gap-8 mt-5'}>
+                                {wishlistByUser.length > 0 ? <div className={'grid mobile-480:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-8 mt-5'}>
                                     { wishlistByUser && wishlistByUser.map((wishlist, index)=> (
                                         <div className='relative' key={index}>
                                             <button onClick={()=> handleRemoveWishlist(wishlist.id)} type='button' className='absolute top-1 right-1 z-10'>
@@ -240,7 +240,7 @@ const MyAccount = () => {
                             <TabPanel className='w-full'>
                                 <h2 className='font-semibold text-2xl mb-5'>Update Personal Information</h2>
                                 <form onSubmit={(e) => { e.preventDefault(); handleUpdateUser(); }}>
-                                    <div className="flex justify-between items-stretch">
+                                    <div className="flex justify-between items-stretch md:flex-row flex-col gap-y-4 md:gap-y-0">
                                         <input
                                             type="text"
                                             placeholder="First Name"
@@ -258,7 +258,7 @@ const MyAccount = () => {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="flex justify-between items-stretch mt-4">
+                                    <div className="flex justify-between items-stretch mt-4 md:flex-row flex-col gap-y-4 md:gap-y-0">
                                         <input
                                             className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none mr-2"
                                             type="email"
@@ -276,7 +276,7 @@ const MyAccount = () => {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="flex justify-between items-stretch mt-4">
+                                    <div className="flex justify-between items-stretch mt-4 md:flex-row flex-col gap-y-4 md:gap-y-0">
                                         <textarea
                                             className="border border-light-gray text-md px-4 py-2 w-full outline-none rounded-md focus:border-secondary mr-2"
                                             name="address"
@@ -292,7 +292,7 @@ const MyAccount = () => {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="flex justify-between items-stretch mt-4">
+                                    <div className="flex justify-between items-stretch mt-4 md:flex-row flex-col gap-y-4 md:gap-y-0">
                                         <input
                                             className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none"
                                             type="text"
@@ -302,7 +302,7 @@ const MyAccount = () => {
                                             onChange={handleChange}
                                         />
                                         <input
-                                            className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none mx-2"
+                                            className="border border-transparent text-md px-4 py-3 w-full rounded-md focus:border-secondary outline-none md:mx-2"
                                             type="text"
                                             name="country"
                                             placeholder="Country"

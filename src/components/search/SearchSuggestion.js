@@ -19,10 +19,10 @@ const SearchSuggestion = () => {
     };
 
     return (
-        <div className='search-suggestion absolute top-[90px] w-full left-0 right-0 z-10 p-5 h-[430px] overflow-y-auto shadow-lg bg-white pb-10 rounded-b-lg'>
+        <div className='search-suggestion absolute top-[140px] lg:top-[90px] w-full left-0 right-0 z-10 p-5 h-[430px] overflow-y-auto shadow-lg bg-white pb-10 rounded-b-lg'>
             {loading && <Loader />}
             {searchResult && searchResult.length > 0 ? (
-                <div className='grid grid-cols-6 gap-8 mt-5'>
+                <div className='grid grid-cols-1 mobile-480:grid-cols-2 gap-6 2xl:grid-cols-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 lg:gap-6 xl:gap-8 md:gap-4 mt-5'>
                     {searchResult.map((item) => (
                         <ProductList
                             key={item.id} 

@@ -19,7 +19,7 @@ const OrderViewItemPrice = ({shippingCharges, paymentMethod, totalAmount}) => {
                 <span className='text-2xl font-semibold'>Total: </span>
                 <span className='text-2xl font-semibold uppercase flex items-center'>
                     <CurrencyRupeeOutlinedIcon/>
-                    {totalAmount}</span>
+                    {totalAmount.toFixed(2)}</span>
             </div>
         </>
     )

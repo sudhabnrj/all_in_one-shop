@@ -8,13 +8,16 @@
     - Category menu with Slider
 - Footer
 - Routing of App
-- Login Form with login functionality
-- New User account Create functionality
+- Login
+- Signup
+- Hash our password before send to the Redux store.
 - Form Validation
 - useRef Hook
 - Created Redux Store and stored the data
 - SignOut
 - Search Mega menu functionality using Search API
+- Responsiveness
+
 - Home page
     - Tab Slider Display using API
 - Shop Page 

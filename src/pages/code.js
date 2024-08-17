@@ -71,7 +71,7 @@ const MyAccount = () => {
     const handleUpdateUser = () => {
         const updatedUser = {
             user: {
-                userId: currentUser.user.userId,
+                userid: currentUser.user.userid,
                 email: currentUser.user.email,
                 phone: userInfo.phone,
                 password: currentUser.user.password,
@@ -79,7 +79,7 @@ const MyAccount = () => {
                 lastName: userInfo.lastName
             },
             address: {
-                userId: currentUser.user.userId,
+                userid: currentUser.user.userid,
                 firstName: userInfo.firstName,
                 lastName: userInfo.lastName,
                 address: userInfo.address,

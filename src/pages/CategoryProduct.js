@@ -75,7 +75,7 @@ const CategoryProduct = () => {
     return (
         <section className='mb-8'>
             {loading && <Loader/>}
-            <div className='container mx-auto px-3 xl:px-0'>
+            <div className='container mx-auto sm:px-3 xl:px-0'>
                 <ul className="bredcrumb my-4 flex items-center rounded-full bg-light-gray p-2 capitalize leading-tight text-light-dark">
                     <BreadcumContainer pageName='Home' pageUrl={'/'} />
                     <BreadcumContainer pageName='Shop' pageUrl={'/shop/'} />
@@ -83,43 +83,43 @@ const CategoryProduct = () => {
                 </ul>
                 <div>
                     <h1 className='font-bold text-2xl mb-4'>Shop With Us</h1>
-                    <div className='flex'>
+                    <div className='flex flex-col lg:flex-row'>
 
-                    <div className='w-1/4 pr-4 sidebar'>
-                        <div className='flex flex-col border border-light-gray'>
-                            <h4 className='border-b-light-gray border font-semibold text-lg px-3 py-2 capitalize flex justify-between items-center'>
-                                Price {isAccordian ? <KeyboardArrowUpOutlinedIcon className='cursor-pointer' onClick={handleAccordian} /> :
-                                <KeyboardArrowDownOutlinedIcon className='cursor-pointer' onClick={handleAccordian} />}
-                            </h4>
-                            {isAccordian && <ul>
-                                {priceRange && priceRange.map((price, index)=> (
-                                    <ItemList 
-                                    key={index} 
-                                    id={`item-${index}`} 
-                                    value={`${price.min}-${price.max}`} 
-                                    itemName={`$${price?.min} - $${price?.max}`} 
-                                    checked={selectedPriceRange.min === price.min && selectedPriceRange.max === price.max}
-                                    handleSelect={()=> handlePriceRangeChange(price)}
-                                    />
-                                ))}
-                            </ul>}
+                        <div className='w-full lg:w-1/4 lg:pr-4 sidebar mb-5 lg:mb-0'>
+                            <div className='flex flex-col border border-light-gray'>
+                                <h4 className='border-b-light-gray border font-semibold text-lg px-3 py-2 capitalize flex justify-between items-center'>
+                                    Price {!isAccordian ? <KeyboardArrowUpOutlinedIcon className='cursor-pointer' onClick={handleAccordian} /> :
+                                    <KeyboardArrowDownOutlinedIcon className='cursor-pointer' onClick={handleAccordian} />}
+                                </h4>
+                                {!isAccordian && <ul>
+                                    {priceRange && priceRange.map((price, index)=> (
+                                        <ItemList 
+                                        key={index} 
+                                        id={`item-${index}`} 
+                                        value={`${price.min}-${price.max}`} 
+                                        itemName={`$${price?.min} - $${price?.max}`} 
+                                        checked={selectedPriceRange.min === price.min && selectedPriceRange.max === price.max}
+                                        handleSelect={()=> handlePriceRangeChange(price)}
+                                        />
+                                    ))}
+                                </ul>}
+                            </div>
                         </div>
-                        </div>
 
-                        <div className='w-3/4'>
-                        <ul className='flex bg-light-gray p-4 shortingSection'>
-                            <li className='mr-2'>
-                            <button onClick={()=> handleProductGridView()} className={`w-10 h-10 ${!isGridView ? 'bg-white' : 'bg-gray-300'} hover:bg-white  flex items-center justify-center`}><GridViewOutlinedIcon /></button>
-                            </li>
-                            <li className='mr-3'>
-                            <button onClick={()=> handleProductGridView()} className={`w-10 h-10 ${isGridView ? 'bg-white' : 'bg-gray-300'} bg-gray-300 hover:bg-white flex items-center justify-center`}><FormatListBulletedOutlinedIcon /></button>
-                            </li>
-                            <li className='mr-1 flex items-center justify-center'>
-                            Items {(currentPage - 1) * itemsPerPage + 1} - {Math.min(currentPage * itemsPerPage, filteredProduct.length)} of {filteredProduct.length}
-                            </li>
-                        </ul>
+                        <div className='w-full lg:w-3/4'>
+                            <ul className='flex bg-light-gray p-4 shortingSection'>
+                                <li className='mr-2'>
+                                <button onClick={()=> handleProductGridView()} className={`w-10 h-10 ${!isGridView ? 'bg-white' : 'bg-gray-300'} hover:bg-white  flex items-center justify-center`}><GridViewOutlinedIcon /></button>
+                                </li>
+                                <li className='mr-3'>
+                                <button onClick={()=> handleProductGridView()} className={`w-10 h-10 ${isGridView ? 'bg-white' : 'bg-gray-300'} bg-gray-300 hover:bg-white flex items-center justify-center`}><FormatListBulletedOutlinedIcon /></button>
+                                </li>
+                                <li className='mr-1 flex items-center justify-center'>
+                                Items {(currentPage - 1) * itemsPerPage + 1} - {Math.min(currentPage * itemsPerPage, filteredProduct.length)} of {filteredProduct.length}
+                                </li>
+                            </ul>
 
-                            <div className={`grid ${!isGridView ? 'grid-cols-4' : 'grid-cols-1'} gap-8 mt-5`}>
+                            <div className={`grid ${!isGridView ? 'mobile-480:grid-cols-2 md:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'} gap-8 mt-5`}>
                                 {paginatedProducts && paginatedProducts.length > 0 ? (paginatedProducts.map((item)=> (
                                     <ProductList
                                         key={item.id}
@@ -137,6 +137,7 @@ const CategoryProduct = () => {
                                         warrantyInformation={item.warrantyInformation}
                                         availabilityStatus={item.availabilityStatus}
                                         items={item}
+                                        isGridView={isGridView}
                                     />
                                 ))) : (
                                     <h3 className="">No Product found!</h3>

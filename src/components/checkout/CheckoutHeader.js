@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { LOGO } from '../../utils/constants'; 
+import LOGO from '../../assets/images/shop.png';  
 
 const CheckoutHeader = () => {
     return (
