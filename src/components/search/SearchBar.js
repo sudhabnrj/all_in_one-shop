@@ -66,14 +66,14 @@ const SearchBar = () => {
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
             type='text' 
-            className='border border-light-dark rounded-sm outline-1 outline-secondary px-4 py-2 h-12 text-light-dark w-full pr-20'
+            className='border border-light-dark rounded-sm outline-1 outline-secondary px-4 py-2 h-10 2xl:h-12 text-light-dark w-full pr-20'
             placeholder='Search for products...'
           />
           {searchQuery &&
             <CloseOutlinedIcon onClick={handleClearSearch} className='bg-transparent hover:bg-gray-300 text-black !w-10 !h-10 p-2 rounded-full absolute right-16 top-1/2 -translate-y-1/2 cursor-pointer' />
           }
 
-          <button onClick={handleSearch} className='bg-secondary text-white absolute top-1/2 right-0 -translate-y-1/2 px-4 py-2 h-12 flex items-center justify-center'><SearchIcon/></button>
+          <button onClick={handleSearch} className='bg-secondary text-white absolute top-1/2 right-0 -translate-y-1/2 px-4 py-2 h-10 2xl:h-12 flex items-center justify-center'><SearchIcon/></button>
       </form>
       {showSearchSuggestion &&
         <div ref={suggestionListRef} onMouseDown={(e) => e.preventDefault()}>

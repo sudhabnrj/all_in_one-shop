@@ -284,6 +284,9 @@ ul.showItems li.active, ul.showItems li:hover {
     .banner-slider{
         min-height: 530px;
     }
+    .topNav ul li a{
+        font-size: 12px;
+    }
 }
 @media(max-width: 1024px){
     .home-Service{

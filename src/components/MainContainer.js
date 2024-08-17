@@ -20,7 +20,7 @@ const MainContainer = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className='w-full mt-5'>
+    <div className='w-full mt-3'>
       <div className='flex flex-col'>
         <div className='container mx-auto sm:px-3 xl:px-0'>
           <section className='heroSlider overflow-hidden pb-8 lg:pb-5'>

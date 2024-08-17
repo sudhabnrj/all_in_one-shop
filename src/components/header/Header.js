@@ -91,7 +91,7 @@ const Header = () => {
           </div>
 
           <div className='flex w-1/3 justify-center lg:justify-start'>
-            <Link className='py-3'><img src={LOGO} alt='Logo' className='max-w-full w-24' /></Link>
+            <Link className='py-1 2xl:py-3'><img src={LOGO} alt='Logo' className='max-w-full w-20 2xl:w-24' /></Link>
           </div>
           <div className='hidden w-1/3 items-center lg:flex'>
             <SearchBar/>
@@ -99,9 +99,9 @@ const Header = () => {
           <div className='flex w-1/3 items-center justify-end gap-3 sm:gap-2 lg:w-1/3 md:gap-4'>
             <ul className='flex items-center gap-x-6 font-medium'>
               <li>
-                <Link to='/cart' className='flex flex-col justify-center items-center lg:bg-secondary lg:text-white lg:py-4 lg:px-6 border border-transparent hover:text-secondary hover:bg-transparent hover:border hover:border-secondary relative'>
-                  <ShoppingCartIcon className='!w-8 !h-8' />
-                  <span className='hidden lg:block'>Cart</span>
+                <Link to='/cart' className='flex flex-col justify-center items-center lg:bg-secondary lg:text-white 2xl:py-4 py-3 lg:px-6 border border-transparent hover:text-secondary hover:bg-transparent hover:border hover:border-secondary relative'>
+                  <ShoppingCartIcon className='2xl:!w-8 2xl:!h-8 !w-6 !h-6' />
+                  <span className='hidden lg:block 2xl:text-xl text-sm'>Cart</span>
                   {cartItems.length > 0 ?
                     (<span className='absolute top-[-10px] right-[-10px] lg:top-[6px] lg:right-[18px] w-5 h-5 bg-primary rounded-full flex justify-center items-center text-white text-xs font-medium text-center'>{cartItems.length}</span>) : ''
                   }

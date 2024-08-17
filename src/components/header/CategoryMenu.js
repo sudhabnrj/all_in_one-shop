@@ -48,7 +48,7 @@ const CategoryMenu = ({className}) => {
                                 return(
                                     <SwiperSlide key={category.slug}>
                                         <li className={`categoryItem hasMegamenu ${isActive(`/shop/${category.slug}`)} cursor-pointer text-center`}>
-                                            <Link to={`/shop/${category.slug}`} className='flex flex-col items-center p-4 font-bold leading-tight whitespace-nowrap'>
+                                            <Link to={`/shop/${category.slug}`} className='text-sm 2xl:text-xl flex flex-col items-center p-4 font-bold leading-tight whitespace-nowrap'>
                                                 {category?.name}
                                             </Link>
                                         </li>

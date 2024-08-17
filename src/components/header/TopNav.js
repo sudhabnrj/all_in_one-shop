@@ -41,25 +41,25 @@ const TopNav = ({className}) => {
   return (
     <div className={`bg-black flex justify-between items-center topNav ${className}`}>
       <div className='container mx-auto lg:px-3 xl:px-0'>
-        <div className='lg:flex justify-between items-center'>
-          <ul className='flex lg:flex-row flex-col justify-start lg:items-center uppercase text-white lg:max-h-12 font-semibold'>
-            <li className='border-b bg-light-dark lg:bg-transparent'>
-              <Link to='/' className={`px-5 py-3 block ${isActive('/')}`}>
+        <div className='lg:flex justify-between items-center lg:h-8'>
+          <ul className='flex lg:flex-row flex-col justify-start lg:items-center uppercase text-white 2xl:max-h-12 font-semibold'>
+            <li className='border-b lg:border-none bg-light-dark lg:bg-transparent'>
+              <Link to='/' className={`px-5 py-2 2xl:py-3 block ${isActive('/')}`}>
                 <HomeIcon className='!w-6 !h-6 !hidden lg:!block' />
                 <span className={`lg:hidden block`}>Home</span>
               </Link>
             </li>
-            <li className='border-b bg-light-dark lg:bg-transparent'>
-              <Link to='/shop' className={`px-5 py-3 block ${isActive('/shop')}`}>SHOP</Link>
+            <li className='border-b lg:border-none bg-light-dark lg:bg-transparent'>
+              <Link to='/shop' className={`px-5 py-2 2xl:py-3 block ${isActive('/shop')}`}>SHOP</Link>
             </li>
-            <li className='border-b bg-light-dark lg:bg-transparent'>
-              <Link to='/partnership' className={`px-5 py-3 block ${isActive('/partnership')}`}>PARTNERSHIPS</Link>
+            <li className='border-b lg:border-none bg-light-dark lg:bg-transparent'>
+              <Link to='/partnership' className={`px-5 py-2 2xl:py-3 block ${isActive('/partnership')}`}>PARTNERSHIPS</Link>
             </li>
-            <li className='border-b bg-light-dark lg:bg-transparent'>
-              <Link to='/markets' className={`px-5 py-3 block ${isActive('/markets')}`}>MARKETS</Link>
+            <li className='border-b lg:border-none bg-light-dark lg:bg-transparent'>
+              <Link to='/markets' className={`px-5 py-2 2xl:py-3 block ${isActive('/markets')}`}>MARKETS</Link>
             </li>
-            <li className='border-b bg-light-dark lg:bg-transparent'>
-              <Link to='/blog' className={`px-5 py-3 block ${isActive('/blog')}`}>THE WIRE BLOG</Link>
+            <li className='border-b lg:border-none bg-light-dark lg:bg-transparent'>
+              <Link to='/blog' className={`px-5 py-2 2xl:py-3 block ${isActive('/blog')}`}>THE WIRE BLOG</Link>
             </li>
             {/* <li>
               <Link to='/one-essex' className={`px-5 py-3 block ${isActive('/one-essex')}`}>INFO</Link>
@@ -67,7 +67,7 @@ const TopNav = ({className}) => {
           </ul>
           <ul className='hidden lg:flex justify-start items-center text-white'>
             {loggedInUser.loggedIn ? (
-              <li className='px-5 py-3 block relative'>
+              <li className='py-2 2xl:py-3 block relative'>
                 <button type='button' className='text-sm flex items-center' onClick={handleDropdown}>
                   <AccountCircleOutlinedIcon className='mr-2' />
                   Welcome <span className='text-md font-medium mx-2'>{displayName}</span> {displayDropdown ? <KeyboardArrowUpOutlinedIcon /> : <ExpandMoreOutlinedIcon />}
