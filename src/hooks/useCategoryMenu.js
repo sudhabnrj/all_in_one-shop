@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { CATEGORY_API } from '../utils/constants';
-import { options } from '../utils/constants';
 import { setCategoryListData } from '../utils/cateoryListSlice';
 import { useDispatch } from 'react-redux';
 

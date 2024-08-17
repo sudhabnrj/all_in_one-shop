@@ -59,15 +59,10 @@ const Blog = () => {
                 </ul>
                 <div>
                     {/* <h1 className='font-bold text-2xl mb-4'>Blog</h1> */}
-                    <div className="flex justify-start items-start mx-4 my-5 flex-wrap md:my-6 lg:my-8 lg:pt-1">
-                        
-                        {/* <div className="blog-cat w-full px-4 sm:w-1/3 lg:w-1/4 xl:w-1/5">
-                            <BlogSidebar />
-                        </div> */}
-                            
+                    <div className="flex justify-start items-start mx-4 my-5 flex-wrap md:my-6 lg:my-8 lg:pt-1">                           
                         <div className="mt-5 w-full px-4 sm:w-2/3 md:mt-0 lg:w-3/4 xl:w-4/5">
-                            {paginatedList && paginatedList.map((item)=> (
-                                <NewsItem key={item?.id} src={item?.urlToImage} title={item?.title} des={item?.description} url={item?.url} author={item?.author} date={item?.publishedAt.slice(0, 10)} />
+                            {paginatedList && paginatedList.map((item, index)=> (
+                                <NewsItem key={index} src={item?.urlToImage} title={item?.title} des={item?.description} url={item?.url} author={item?.author} date={item?.publishedAt.slice(0, 10)} />
                             ))}
 
                             <div className='flex justify-start mt-8 w-full'>

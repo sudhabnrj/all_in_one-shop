@@ -1,9 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import HomeSlider from './HomeSlider';
-import useSlider from '../hooks/useSlider';
-import { useSelector } from 'react-redux';
-import SliderShimmer from './shimmer/SliderShimmer';
 import SliderThumb from './SliderThumb';
 import About from './About';
 import HomeVideoBg from './HomeVideoBg';
@@ -14,15 +11,6 @@ import HomeVideo from '../assets/images/homeVideo.mp4'
 
 
 const MainContainer = () => {
-  // const displaySlider = useSelector((state)=> state.homeSlider.sliderData?.options?.slides);
-  // console.log(displaySlider);
-  // useSlider();
-
-  // if(!displaySlider){
-  //   return <SliderShimmer/>
-  // }
-
-  console.log(SliderData);
 
   const settings = {
     dots: true,

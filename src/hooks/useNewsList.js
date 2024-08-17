@@ -11,10 +11,9 @@ const useNewsList = () => {
 
         const fetchBlogList = async () => {
             try{
-                const data = await fetch(`${BLOG_API}q=all&from=2024-08-06&sortBy=popularity&apiKey=${BLOG_API_KEY}`);
+                const data = await fetch(`${BLOG_API}&q=all&from=2024-08-06&sortBy=popularity`);
                 const json = await data.json();
                 dispatch(addNewsList(json));
-                console.log(json);
             }
             catch(error){
                 console.error('Error fetching data',error);
