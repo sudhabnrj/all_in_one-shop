@@ -29,7 +29,7 @@ const Partnerships = () => {
             <div className='flex flex-col'>
               <p>We believe in partnerships. Finding high-quality products and premier companies interested in a lasting partnership with Essex Brownell is our m.o. The ultimate goal is to provide our customers with unmatched products and services. Our partnerships are mutually beneficial, driving us all to do better.</p>
               <p className='my-5'>We have the breadth and the depth to provide lots of solutions within many different industries. As a global distributing leader, we have the capacity to offer a plethora of products as well as comprehensive solutions for our customer’s business needs.</p>
-              <picture>
+              <picture className='w-1/2 mx-auto'>
                 <LoadingImg alt='img' src="https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0" /></picture>
             </div>
           </div>
