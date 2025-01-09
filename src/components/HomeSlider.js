@@ -4,12 +4,12 @@ import LoadingImg from './LoadingImg';
 const HomeSlider = ({src, className, srcSet, sizes}) => {
     return (
         <picture>
-            <source srcSet={srcSet} type="image/webp" />
+            <source src={src} type="image/webp" />
             <LoadingImg 
                 className={`${className}`} 
                 src={src} 
                 srcSet={srcSet} 
-                size={sizes} 
+                size={sizes}  
                 alt='' 
             />
         </picture>    

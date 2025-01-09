@@ -12,6 +12,9 @@ import HomeVideo from '../assets/images/homeVideo.mp4'
 
 const MainContainer = () => {
 
+  console.log(SliderData[0]);
+  
+
   const settings = {
     dots: true,
     infinite: true,
