@@ -63,7 +63,8 @@ body{
     right: 0;
     transition: all 0.2s ease-in-out;
 }
-.isSticky > .topNav{
+.isSticky > .topNav,
+.isSticky > .middleNavBar{
     display: none;
 }
 .megaMenu ul::-webkit-scrollbar,

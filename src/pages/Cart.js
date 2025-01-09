@@ -65,7 +65,7 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                  <div className='cart-table'>
+                  <div className='cart-table w-full'>
                     <table className="w-full ">
                       <thead>
                           <tr>

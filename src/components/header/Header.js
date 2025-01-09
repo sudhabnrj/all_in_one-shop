@@ -30,7 +30,7 @@ const Header = () => {
   const isSticky = (e) => {
     const header = document.getElementById('mainHeader');
     const scrollTop = window.scrollY;
-    scrollTop >= 48 ? header.classList.add('isSticky') : header.classList.remove('isSticky');
+    scrollTop >= 105 ? header.classList.add('isSticky') : header.classList.remove('isSticky');
   };
 
   useEffect(()=> {
@@ -60,7 +60,7 @@ const Header = () => {
   return (
     <header className='w-full bg-white' id='mainHeader'>
       <TopNav className={`hidden lg:block`} />
-      <div className='container mx-auto px-0 sm:px-3 xl:px-0'>
+      <div className='container mx-auto px-0 sm:px-3 xl:px-0 middleNavBar'>
         <div className='relative flex items-center justify-between '>
           <div className='flex w-1/3 items-center gap-3 py-3 sm:gap-2 md:w-1/3 md:gap-4 lg:hidden'>
             <button className='flex items-center flex-col justify-center' onClick={handleOpenNavMenu}>
