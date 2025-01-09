@@ -12,4 +12,4 @@ export const MASTERCARDLOGO = 'https://upload.wikimedia.org/wikipedia/commons/th
 export const AMEXLOGO = 'https://w7.pngwing.com/pngs/1002/997/png-transparent-amex-payment-method-card-icon-thumbnail.png'
 export const PAYPALLOGO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/800px-PayPal.svg.png?20230314142951'
 export const shippingCharges = 50.00;
-export const BLOG_API = 'https://newsapi.org/v2/everything?apiKey=' + process.env.REACT_APP_BLOG_API_KEY;
+export const BLOG_API = 'https://newsapi.org/v2/everything?domains=wsj.com&apiKey=' + process.env.REACT_APP_BLOG_API_KEY;
